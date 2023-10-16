@@ -7,4 +7,47 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Icons\categories.png" />
+    <None Remove="Images\Icons\dashboard.png" />
+    <None Remove="Images\Icons\event.png" />
+    <None Remove="Images\Icons\finance.png" />
+    <None Remove="Images\Icons\order.png" />
+    <None Remove="Images\Icons\product.png" />
+    <None Remove="Images\Icons\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icons\categories.png" />
+    <Resource Include="Images\Icons\order.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icons\dashboard.png" />
+    <Resource Include="Images\Icons\event.png" />
+    <Resource Include="Images\Icons\finance.png" />
+    <Resource Include="Images\Icons\product.png" />
+    <Resource Include="Images\Icons\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MVVM\View\FinanceView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\CategoriesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\EventsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

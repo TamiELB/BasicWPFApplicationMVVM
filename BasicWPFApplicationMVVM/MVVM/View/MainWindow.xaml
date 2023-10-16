@@ -1,0 +1,183 @@
+﻿<Window x:Class="BasicWPFApplicationMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BasicWPFApplicationMVVM"
+        xmlns:viewmodel="clr-namespace:BasicWPFApplicationMVVM.MVVM.ViewModels"
+        Height="600" Width="920"
+        MinWidth="920" MinHeight="600"
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="{StaticResource LinearBackground}"
+        mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome     
+            CaptionHeight="1"  
+            CornerRadius ="20"     
+            GlassFrameThickness="0">
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styling/MainWindowStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel Background="Transparent" Style="{StaticResource DockPanelStyle}">
+        <Border Height="50"              
+                Background="Transparent"
+                DockPanel.Dock="Top" 
+                MouseLeftButtonDown="DragWindow">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding Title}"
+                           Foreground="{StaticResource ReverseLinearBackground}"
+                           Margin="10"
+                           FontSize="20"
+                           VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                    <Button Content="—" Style="{StaticResource TitleBarButtonStyle}" Click="MinimizeClicked"/>
+                    <Button Content="🗖" Style="{StaticResource TitleBarButtonStyle}" Click="MaximizedClicked"/>
+                    <Button Content="X" Style="{StaticResource TitleBarButtonStyle}" Click="ClosedClicked"/>
+
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+        <Border HorizontalAlignment="Left"
+                Background="Transparent"
+                Width="125">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="125"/>
+                </Grid.RowDefinitions>
+
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top">
+                    <StackPanel Margin="0,16,0,0">
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}"  Command="{Binding ShowDashBoard}"
+                                 GroupName="NavRadioButton"
+                                 IsChecked="True">
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image Source="/Images/Icons/dashboard.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Dashboard" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowProducts}"
+                                 GroupName="NavRadioButton">
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image Source="/Images/Icons/product.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Products" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowOrders}"
+                                 GroupName="NavRadioButton">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Icons/order.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Orders" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowEvents}"
+                                 GroupName="NavRadioButton">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Icons/event.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Events" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowCategories}"
+                                 GroupName="NavRadioButton">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Icons/categories.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Categories" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowFinance}"
+                                 GroupName="NavRadioButton">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Icons/finance.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                                <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                                <TextBlock Text="Finance" Style="{StaticResource RadioButtonTextStyle}"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                    <RadioButton Style="{StaticResource MenuRadioButtonStyle}" Command="{Binding ShowSettings}"
+                                 GroupName="NavRadioButton">
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/Icons/settings.png" Style="{StaticResource RadioButtonImageStyle}"/>
+
+                            <Border Style="{StaticResource RadioButtonBorderDeviderStyle}"/>
+
+                            <TextBlock Text="Settings" Style="{StaticResource RadioButtonTextStyle}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+        <ContentPresenter Content="{Binding Global.CurrentView}"/>
+    </DockPanel>
+
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="WindowChrome.ResizeBorderThickness" Value="9"/>
+            <Style.Triggers>
+                <Trigger Property="WindowState" Value="Maximized">
+                    <Setter Property="WindowChrome.ResizeBorderThickness" Value="0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+</Window>
+

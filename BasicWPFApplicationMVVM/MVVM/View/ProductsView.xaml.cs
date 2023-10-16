@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BasicWPFApplicationMVVM
+namespace BasicWPFApplicationMVVM.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductsView : UserControl
     {
-        public MainWindow()
+        public ProductsView()
         {
             InitializeComponent();
         }

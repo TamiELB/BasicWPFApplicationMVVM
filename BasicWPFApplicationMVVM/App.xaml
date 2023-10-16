@@ -2,8 +2,59 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:BasicWPFApplicationMVVM"
-             StartupUri="MainWindow.xaml">
+             xmlns:view="clr-namespace:BasicWPFApplicationMVVM.MVVM.View"
+             xmlns:vms="clr-namespace:BasicWPFApplicationMVVM.MVVM.ViewModels"
+             StartupUri="MVVM/View/MainWindow.xaml">
+    
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="BackgroundColor">#202126</SolidColorBrush>
+
+            <SolidColorBrush x:Key="PrimaryColor">white</SolidColorBrush>
+            <SolidColorBrush x:Key="SecondaryColor">white</SolidColorBrush>
+            <SolidColorBrush x:Key="AccentColor">white</SolidColorBrush>
+
+            <LinearGradientBrush x:Key="LinearBackground">
+                <GradientStop Color="#E6DADA" Offset="0" />
+
+                <GradientStop Color="#274046" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="ReverseLinearBackground">
+                <GradientStop Color="DarkBlue" Offset="1.0" />
+
+                <GradientStop Color="#b76c99" Offset="0.5" />
+
+                <GradientStop Color="#EE696B" Offset="0" />
+            </LinearGradientBrush>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:DashBoardViewModel}">
+                <view:DashBoardView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:ProductsViewModel}">
+                <view:ProductsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:OrdersViewModel}">
+                <view:OrdersView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:EventsViewModel}">
+                <view:EventsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:CategoriesViewModel}">
+                <view:CategoriesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:FinanceViewModel}">
+                <view:FinanceView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=vms:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
