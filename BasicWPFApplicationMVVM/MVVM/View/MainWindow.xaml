@@ -11,14 +11,7 @@
         AllowsTransparency="True"
         Background="{StaticResource LinearBackground}"
         mc:Ignorable="d">
-    <WindowChrome.WindowChrome>
-        <WindowChrome     
-            CaptionHeight="1"  
-            CornerRadius ="20"     
-            GlassFrameThickness="0">
-        </WindowChrome>
-    </WindowChrome.WindowChrome>
-
+    
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
@@ -170,11 +163,25 @@
     </DockPanel>
 
     <Window.Style>
-        <Style TargetType="Window">
-            <Setter Property="WindowChrome.ResizeBorderThickness" Value="9"/>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome CaptionHeight="0"  
+                              CornerRadius ="20"    
+                              GlassFrameThickness="0"
+                              ResizeBorderThickness="10"/>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="WindowState" Value="Maximized">
-                    <Setter Property="WindowChrome.ResizeBorderThickness" Value="0"/>
+                    <Setter Property="WindowChrome.WindowChrome">
+                        <Setter.Value>
+                            <WindowChrome CaptionHeight="0"  
+                              CornerRadius ="0"    
+                              GlassFrameThickness="0"
+                              ResizeBorderThickness="0"/>
+                        </Setter.Value>
+                    </Setter>
                 </Trigger>
             </Style.Triggers>
         </Style>
