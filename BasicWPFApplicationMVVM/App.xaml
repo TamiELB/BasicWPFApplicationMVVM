@@ -15,17 +15,16 @@
             <SolidColorBrush x:Key="AccentColor">white</SolidColorBrush>
 
             <LinearGradientBrush x:Key="LinearBackground">
-                <GradientStop Color="#E6DADA" Offset="0" />
+                <GradientStop Color="#ED4264" Offset="0" />
 
-                <GradientStop Color="#274046" Offset="1.0" />
+                <GradientStop Color="#FFEDBC" Offset="1.2" />
             </LinearGradientBrush>
 
             <LinearGradientBrush x:Key="ReverseLinearBackground">
-                <GradientStop Color="DarkBlue" Offset="1.0" />
+                <GradientStop Color="#E5E5BE" Offset="0" />
 
-                <GradientStop Color="#b76c99" Offset="0.5" />
 
-                <GradientStop Color="#EE696B" Offset="0" />
+                <GradientStop Color="#5FC3E4" Offset="1" />
             </LinearGradientBrush>
 
             <DataTemplate DataType="{x:Type TypeName=vms:DashBoardViewModel}">
